@@ -1,26 +1,14 @@
-#ifndef INT_ALLOC_H
-#define INT_ALLOC_H
+#ifndef MEMORY_H
+#define MEMORY_H
 
 #define POOL_SIZE 10
 
-typedef struct {
-    int data;
-    int is_used;
-} IntMemorySlot;
+void init_memory(void);
+int alloc_cell(void);
+int free_cell(int index);
 
-// Allocates memory for one integer (returns 1-based cell ID)
-int allocate_int(void);
+// void print_available_list(void);
+// void print_allocated_list(void);
 
-// Frees a cell, given its ID (returns 0 on success)
-int free_int(int cell_id);
-
-// Allocates and returns a pointer to the integer cell, or NULL
-int* allocate_int_ptr(void);
-
-// Frees the memory using its pointer
-void free_int_ptr(int* ptr);
-
-// Initializes the memory pool (call once at program start)
-void init_memory_pool(void);
-
-#endif // INT_ALLOC_H
+void print_state(void);
+#endif
